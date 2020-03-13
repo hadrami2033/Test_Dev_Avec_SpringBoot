@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeliaf.org">
+<head >
+<meta charset="utf-8"/>
+<title>Ajouter un noumeau employe</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<p></p>
+<div class="container">
+<div class="card border-secondary col-sm-10" >
+  <div  class="card-header"><h4>Nouveau employe</h4> </div>
+  <div class="card-body">
+ <form th:action="@{save}" method="post">
+  		<br><br>
+   <div class="row">
+  <div class="col-sm-9">
+    <div style="border-radius: 15px " class="card">
+    <div  class="card border-secondary ">
+  <kbd style="border-radius: 10px" class="bg-primary col-sm-4"><h4>Etat Civil</h4></kbd>
+  <div class="card-body">
+   <div class="form-group row">
+       <label class="control-label col-sm-6" ><h4>Nom  :</h4></label>
+       <div class="col-sm-5">
+       <input style="border-radius: 10px" class="form-control" type="text" name="Nom" th:value="${employe.Nom}" />
+      
+      </div>
+      </div>
+      <div class="form-group row">
+       <label class="control-label col-sm-6"> <h4>Prenom :</h4></label>
+       <div class="col-sm-5">
+       <input style="border-radius: 10px" class="form-control" type="text" name="Prenom" th:value="${employe.Prenom}" />
+      </div>
+      </div>
+       <div class="form-group row">
+       <label class="control-label col-sm-6"><h4>Date de Naissance :</h4></label>
+       <div class="col-sm-5">
+       <input style="border-radius: 10px" class="form-control" type="date" name="DateNaissance" th:value="${employe.DateNaissance}" />
+      </div>
+      </div>
+      
+      <div class="form-group row">
+      <label class="control-label col-sm-6" for="inputGenre"><h4>Genre :</h4></label>
+      <div class="col-md-4">
+      <select style="border-radius: 10px" name="Genre" class="form-control" th:value="${employe.Genre}">
+        <option selected>Homme</option>
+        <option>Femme</option>
+      </select>
+      </div>
+      
+    </div>
+     </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <br>
+    <br>
+        <img style=" width:190px;height:228px;border-radius:25px" class="float-xl-right " th:src="@{img/desktop.jpg}"/>
+      
+  </div>
+</div>
+  <br>  <br>
+ <div class="card border-secondary ">
+ <kbd style="border-radius: 10px" class="bg-primary col-sm-5"><h4>Consultation</h4></kbd>
+  <div class="card-body">
+      <div class="form-group row">
+       <label class="control-label col-sm-4"><h4>Groupe Sanguin :</h4></label>
+       <div  class="col-md-3">
+      <select style="border-radius: 10px" name="GroupeSanguin" class="form-control" th:value="${employe.GroupeSanguin}">
+        <option selected>O+</option>
+        <option>O-</option>
+        <option>A+</option>
+        <option>A-</option>
+        <option>B+</option>
+        <option>B-</option>
+        <option>AB+</option>
+        <option>AB-</option>
+      </select>
+      </div>
+      </div>
+      <div class="form-group row">
+       <label class="control-label col-sm-4"><h4>Poids :</h4></label>
+       <div class="col-md-6 form-inline">
+       <input style="border-radius: 10px" class="form-control" alt="" type="double" name="Poids" th:value="${employe.Poids}" /> <div><h4>kl</h4></div>
+       </div>
+      </div>
+      <div class="form-group row">
+       <label class="control-label col-sm-4"><h4>Taille :</h4></label>
+       <div class="col-md-6 form-inline">
+       <input style="border-radius: 10px" class="form-control" type="double" name="Taille" th:value="${employe.Taille}" /><div><h4>cm</h4></div> 
+      </div>
+      </div>
+      <div class="form-group row">
+       <label class="control-label col-sm-4"><h4>Observations :</h4></label>
+       <div class="col-md-8">
+       <textarea style="border-radius: 10px" class="form-control" type="text" name="Observations" th:value="${employe.Observations}"></textarea>
+      </div>
+      </div>
+      </div>
+      </div>
+      <div>
+      <button style="border-radius: 10px ;width:150px;height:60px;" type="submit" class="btn btn-primary float-right my-2" ><h4>Submit</h4></button>
+      </div>
+ </form>
+ 
+</div>
+</div>
+</div>
+</body>
+</html>

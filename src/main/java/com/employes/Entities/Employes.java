@@ -2,9 +2,14 @@ package com.employes.Entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import org.springframework.lang.NonNull;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Employes {
@@ -13,7 +18,9 @@ public class Employes {
 	private long Id;
 	private String Nom;
 	private String Prenom;
-	private Date DateNaissance;
+	//@Column
+    //@JsonFormat(pattern = "dd/MM/yyyy")
+	private String DateNaissance;
 	private String Genre;
 	private String GroupeSanguin;
 	private double Poids;
@@ -26,7 +33,7 @@ public class Employes {
 	}
 	
 	
-	public Employes(String nom, String prenom, Date dateNaissance, String genre, String groupeSanguin, double poids,
+	public Employes(String nom, String prenom, String dateNaissance, String genre, String groupeSanguin, double poids,
 			double taille, String observations) {
 		super();
 		Nom = nom;
@@ -70,12 +77,12 @@ public class Employes {
 	}
 
 
-	public Date getDateNaissance() {
+	public String getDateNaissance() {
 		return DateNaissance;
 	}
 
 
-	public void setDateNaissance(Date dateNaissance) {
+	public void setDateNaissance(String dateNaissance) {
 		DateNaissance = dateNaissance;
 	}
 
