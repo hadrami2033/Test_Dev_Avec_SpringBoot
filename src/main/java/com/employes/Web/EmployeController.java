@@ -21,6 +21,14 @@ public class EmployeController {
 	@Autowired
 	public EmployeMetier employeMetier;
 	
+
+	@RequestMapping(value ="", method = RequestMethod.GET)
+	public String index(Model model) {
+		model.addAttribute("listemployes",employeMetier.listEmployes());
+		return "listEmploye";
+		//return "test";
+	}
+	
 	@RequestMapping(value = "/formEmp", method = RequestMethod.GET)
 	public String formEmploye(Model model) {
 		model.addAttribute("employe",new Employes());
@@ -31,20 +39,9 @@ public class EmployeController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(Model model, Employes employe) {
 		employeMetier.addEmployer(employe);
-		return "ajoutEmploye";
+		model.addAttribute("listemployes",employeMetier.listEmployes());
+		return "listEmploye";
 	}
 
-	@GetMapping("/formEmp1")
-	public String formEmploye1(Model model) {
-		model.addAttribute("employe",new Employes());
-		//return "formEmploye";
-		return "test";
-	}
 	
-	@PostMapping("/save1")
-	public String save1(Model model, Employes employe ,BindingResult bindingResult) {
-		employeMetier.addEmployer(employe);
-		return "ajoutEmploye";
-	}
-
 }

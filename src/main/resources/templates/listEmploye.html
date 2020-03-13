@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeliaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Gestion des cliens</title>
+<link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<p></p>
+<div>
+<form th:action="@{formEmp}">
+     <button style="border-radius: 10px ;width:150px;height:60px;" type="submit" class="btn btn-primary my-2" >Ajoute Employe</button>
+ </form>
+
+</div>
+<div class="text-info">
+<table class="table ">
+	  <thead> 
+	  <tr style="border-radius: 10px" class="bg-primary text-white">
+	  <th>Id</th><th>Nom</th><th>Prénom</th><th>Date de Naissance</th><th>Genre</th><th>Groupe Sanguin</th><th>Poids</th><th>Taille</th>
+	  <th>Observation</th>
+	  </tr>
+	  </thead>
+	  <tbody>
+	  <tr th:each="e:${listemployes}">
+	  <td th:text="${e.getId()}"></td>
+	  <td th:text="${e.getNom()}"></td> 
+	  <td th:text="${e.getPrenom()}"></td>
+	   <td th:text="${e.getDateNaissance()}"></td>
+	  <td th:text="${e.getGenre()}"></td> 
+	  <td th:text="${e.getGroupeSanguin()}"></td>
+	  <td th:text="${e.getPoids()}"></td>
+	  <td th:text="${e.getTaille()}"></td> 
+	  <td th:text="${e.getObservations()}"></td>
+	  
+	  </tr>
+	  </tbody>
+</table>
+	
+</div>
+
+</body>
+</html>
